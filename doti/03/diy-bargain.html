@@ -25,5 +25,13 @@
 		</ul>
 		<div id="showResult"></div>	
 	</div>	
+	<script>
+		function showPrice() {
+			let current = document.getElementById("oPrice").value;
+			let rate = document.querySelector("#rate").value;
+			let result = current - (current * (rate / 100));
+			document.querySelector("#showResult").innerHTML = `할인된 금액은 ${result} 입니다.`;
+		}
+	</script>
 </body>
 </html>

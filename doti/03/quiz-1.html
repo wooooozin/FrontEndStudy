@@ -7,6 +7,10 @@
 	<title>웹 브라우저 창에 표시하기</title>
 </head>
 <body>	
-
+	<h1 style="text-align: center;" id="str"></h1>
+	<script>
+		let str = prompt();
+		document.querySelector("#str").innerHTML = `${str}`;
+</script>
 </body>
 </html>

@@ -5,8 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>사각형 너비 구하기</title>
+	<link rel="stylesheet" href="css/age.css">
 </head>
 <body>	
-
+	<button class="btn" onclick="calc()">사각형 넓이 계산하기</button>
+	<script>
+		function calc() {
+			let width = prompt("가로 길이를 입력하세요.");
+			let heigth = prompt("세로 길이를 입력하세요.");
+			let result = width * heigth;
+			alert(result);
+		}
+	</script>
 </body>
 </html>
