@@ -8,6 +8,17 @@
 	<link rel="stylesheet" href="css/factorial.css">
 </head>
 <body>
+	<script>
+		var number = prompt("숫자를 입력하세요", "10");
+		var nFact = 1;
+		var i = 2;
 
+		while (i <= number) {
+			nFact *= i;
+			i++;
+		}
+
+		document.write(number + "! = " + nFact);
+	</script>
 </body>
 </html>

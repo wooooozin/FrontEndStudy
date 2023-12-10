@@ -10,4 +10,17 @@
 <body>
 	<div id="result"></div>
 </body>
+<script>
+	var inputNumber = prompt("숫자를 입력하세요.");
+	var divArea = document.querySelector("#result");
+	if (inputNumber != null) {
+		if (inputNumber % 3 == 0) {
+			divArea.innerHTML = (`${inputNumber} 는 3의 배수입니다.`);
+		} else {
+			divArea.innerHTML = (`${inputNumber} 는 3의 배수가 아닙니다.`);
+		}
+	} else {
+		alert("입력을 취소하였습니다.");
+	}
+</script>
 </html>
