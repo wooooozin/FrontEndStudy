@@ -7,11 +7,14 @@
 	<style>
 		body { text-align: center; font-size:1.2em; line-height: 2em;}
 	</style>
+	<script src="js/quiz-2.js"></script>
 </head>
 <body>
 	<script>
 		var r = prompt("원의 반지름은? (cm)");
-	
+		var c = new Circle(r);
+		document.write("둘레 : 약" + c.circumference() + "<br>");
+		document.write("넓이 : 약" + c.area());
 	</script>
 </body>
 </html>
