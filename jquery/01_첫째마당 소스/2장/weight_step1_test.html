@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <title> 과체중 테스트 </title>
 <script>
-	var userHeight = 180; //신장
-	var userWeight = 74; //몸무게
+	var userHeight = prompt('키를 입력하세요', '173'); //신장
+	var userWeight = prompt('몸무게를 입력하세요', '64'); //몸무게
+	var normarWeight = ((userHeight - 100) * 0.9)
+	var result = normarWeight + 5 >= userWeight && normarWeight - 5 <= userWeight;
+	var resultOut = result ? '적정체중' : '적정체중 아님';
+	document.write(resultOut);
 
 </script>
 </head>
