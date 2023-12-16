@@ -4,7 +4,42 @@
 	<meta charset = "UTF-8">
 	<title> 날짜 정보 객체 </title>
 	<script>
+		var today = new Date();
+		var nowMonth = today.getMonth();
+		var nowDate = today.getDate();
+		var nowDay = today.getDay();
+		
+		switch (nowDay) {
+			case 0:
+				 nowDay = '일요일';
+			break;
+			case 1:
+				nowDay ='월요일';
+			break;
+			case 2:
+				nowDay ='화요일';
+			break;
+			case 3:
+				nowDay ='수요일';
+			break;
+			case 4:
+				nowDay ='목요일';
+			break;
+			case 5:
+				nowDay ='금요일';
+			break;
+			case 6:
+				nowDay = '토요일';
+				break;
+			default:
+				break;
+		}
 
+		document.write('<h1> 오늘 날짜 </h1>');
+		document.write(`${nowMonth + 1} 현재월 <br>`);
+		document.write(`${nowDate} 현재날 <br>`);
+		document.write(`${nowDay} 현재일 <br>`);
+		
 	</script>
 </head>
 <body>
