@@ -4,6 +4,44 @@
 <meta charset = "UTF-8">
 <title> 함수 </title>
 <script>
+function CheckWeight(name, height, weight) {
+  this.userName = name;
+  this.userHeight = height;
+  this.userWeight = weight;
+  this.minWeight;
+  this.maxWeight;
+
+  this.getInfo = function() {
+    var str = '';
+    str += 'name :' + this.userName + ', ';
+    str += 'height : ' + this.userHeight + ', ';
+    str += 'weight : ' + this.userWeight + '<br>';
+    return str;
+  }
+
+  this.getResult = function () {
+    this.minWeight = (this.userHeight - 100) * 0.9 - 5;
+    this.maxWeight = (this.userHeight - 100) * 0.9 + 5;
+
+    if (this.userWeight >= this.minWeight &&
+      this.userWeight <= this.maxWeight) {
+      return '정상 몸무게 입니다.';
+      } else if (this.userWeight < this.minWeight) {
+      return '미달 입니다.';
+      } else {
+      return '초과 입니다.';
+    }
+  }
+}
+
+var john = new CheckWeight('보리', 168, 62);
+  var choco = new CheckWeight('진달래', 180, 88);
+
+  console.log(john);
+  console.log(choco);
+
+  document.write(john.getInfo());
+  document.write(john.getResult());
 
 </script>
 </head>

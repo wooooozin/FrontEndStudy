@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset = "UTF-8">
-<title> 함수 </title>
-<script>
+  <meta charset="UTF-8">
+  <title>체중 확인</title>
+  <script>
+    function CheckWeight(name, height, weight) {
+      this.userName = name;
+      this.userHeight = height;
+      this.userWeight = weight;
+    }
 
-</script>
+    CheckWeight.prototype.getInfo = function () {
+      var str = '';
+      str += 'name: ' + this.userName + ', ';
+      str += 'height: ' + this.userHeight + ', ';
+      str += 'weight: ' + this.userWeight + '<br>';
+      return str;
+    };
+
+    CheckWeight.prototype.getResult = function () {
+      var minWeight = (this.userHeight - 100) * 0.9 - 5;
+      var maxWeight = (this.userHeight - 100) * 0.9 + 5;
+
+      if (this.userWeight >= minWeight && this.userWeight <= maxWeight) {
+        return '정상 몸무게 입니다.';
+      } else if (this.userWeight < minWeight) {
+        return '미달 입니다.';
+      } else {
+        return '초과 입니다.';
+      }
+    };
+
+    var john = new CheckWeight('보리', 168, 62);
+    var choco = new CheckWeight('진달래', 180, 88);
+
+    console.log(john);
+    console.log(choco);
+
+    document.write(john.getInfo());
+    document.write(john.getResult() + '<br>');
+
+    document.write(choco.getInfo());
+    document.write(choco.getResult());
+  </script>
 </head>
 <body>
 </body>
