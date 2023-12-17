@@ -6,6 +6,21 @@
 <script>
 	var count = 0;
 
+	function callCount() {
+		count++;
+		document.write(`count : ${count} <br>`);
+	}
+
+	callCount();
+	callCount2();
+
+
+	var callCount2 = function() {
+		count++;
+		document.write(`count2 : ${count}`);
+	}
+
+
 </script>
 </head>
 <body>

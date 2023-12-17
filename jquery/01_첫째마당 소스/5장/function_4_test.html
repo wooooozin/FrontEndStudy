@@ -6,6 +6,22 @@
 <script>
 	var rightId = "korea";
 	var rightPw = "1234";
+
+	function checkIdAndPassword(id, password) {
+		if (id === rightId && password === rightPw) {
+			document.write(id + '방문을 환영합니다.');
+		} else {
+			alert('아이디 및 패스워드를 다시 확인해주세요.');
+			location.reload();
+		}
+	}
+
+	var userId = prompt("아이디를 입력해주세요.");
+	var userPassword = prompt("비밀번호를 입력해주세요.");
+
+	checkIdAndPassword(userId, userPassword);
+
+	
 </script>
 </head>
 <body>
