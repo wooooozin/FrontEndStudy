@@ -6,7 +6,18 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ) {
+	$('.btn1').on('click', function(e){
+		e.preventDefault(); // 기존 a 태그 막음, 기본 이벤트로 대체
+		$('.txt1').css('background-color', 'red');
+	});
 
+	$('.btn2').on('click', function(e) {
+		$('.txt2').css({'background-color':'red'}); // 변하고 링크 이동
+	});
+
+	$('.btn3').on('click', function() { 
+		$('.txt3').css({'background-color':'red'});
+	});
 });
 </script>
 </head>

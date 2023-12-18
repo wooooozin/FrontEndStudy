@@ -6,7 +6,25 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ) {
-	
+	$('.btn1').on({
+		'mouseover': function() {
+			$('.txt1').css({'background-color':'red'});
+		},
+		'mouseout': function() {
+			$('.txt1').css({'background':'none'});
+		}
+	});
+	/*
+	hover 메서드는 두 개의 콜백 함수를 받아들이며, 첫 번째 함수는 mouseover에 대한 동작, 두 번째 함수는 mouseout에 대한 동작을 정의합니다.
+	*/
+	$('.btn2').hover(
+		function() {
+			$('.txt2').css({'background-color':'red'});
+		},
+		function() {
+			$('.txt2').css({'background':'none'});
+		}
+	);
 });
 </script>
 </head>
