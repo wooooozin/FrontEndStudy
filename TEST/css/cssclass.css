@@ -1,0 +1,55 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background: orange;
+  transition: 1s;
+}
+
+.box:focus {
+  width: 300px;
+  background-color: royalblue;
+}
+
+input:focus {
+  background-color: orange;
+}
+
+.fruits span:first-child {
+  background: rebeccapurple;
+}
+
+.fruits h3:last-child {
+  background: red;
+}
+
+/* .fruits *:nth-child(n+2) {
+  color:aquamarine;
+} */
+
+.fruits *:not(span) {
+  color: brown;
+}
+
+.box::before {
+  content: "앞!";
+}
+
+.box::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: royalblue;
+}
+
+[disabled] {
+  color: blue;
+}
+
+[type] {
+  background-color: orange;
+}
+
+[type="password"] {
+  color: red;
+}
