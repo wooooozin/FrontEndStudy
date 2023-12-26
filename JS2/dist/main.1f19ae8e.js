@@ -127,10 +127,21 @@ exports.default = getType;
 function getType(data) {
   return Object.prototype.toString.call(data).slice(8, -1);
 }
+},{}],"getRandom.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = random;
+function random() {
+  return Math.floor(Math.random() * 10 + 1);
+}
 },{}],"main.js":[function(require,module,exports) {
 "use strict";
 
 var _getType = _interopRequireDefault(require("./getType"));
+var _getRandom = _interopRequireDefault(require("./getRandom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 // 데이터 타입 확인 - typeof
 
@@ -191,7 +202,42 @@ console.log('!: ', !true); // false
 // 삼항연산자
 console.log(1 < 2 ? true : false); // true
 console.log(1 > 2 ? '참' : '거짓'); // 거짓
-},{"./getType":"getType.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+// if - else
+
+var num = (0, _getRandom.default)();
+if (num === 1) {
+  console.log('a is 1');
+} else if (num === 10) {
+  console.log('a is 10');
+} else {
+  console.log('a between 2 - 9');
+}
+
+// switch
+switch (num) {
+  case 0:
+    console.log('num is 0');
+    break;
+  case 2:
+    console.log('num is 2');
+    break;
+  case 4:
+    console.log('num is 4');
+    break;
+  default:
+    console.log('rest...');
+    break;
+}
+
+// for 
+var ulEl = document.querySelector('ul');
+for (var i = 0; i < 3; i += 1) {
+  var li = document.createElement('li');
+  li.textContent = "list-".concat(i + 1);
+  ulEl.appendChild(li);
+}
+},{"./getType":"getType.js","./getRandom":"getRandom.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

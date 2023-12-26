@@ -1,5 +1,6 @@
 // 데이터 타입 확인 - typeof
 import getType from "./getType";
+import random from "./getRandom";
 
 console.log(getType(null)); // [object Null] 
 console.log(getType(1234)); // [object Number]
@@ -61,3 +62,38 @@ console.log('!: ', !true) // false
 // 삼항연산자
 console.log((1 < 2) ? true : false) // true
 console.log((1 > 2) ? '참' : '거짓') // 거짓
+
+// if - else
+
+const num = random();
+if (num === 1) {
+  console.log('a is 1');
+} else if (num === 10) {
+  console.log('a is 10');
+} else {
+  console.log('a between 2 - 9');
+}
+
+// switch
+switch (num) {
+  case 0:
+    console.log('num is 0');
+    break;
+  case 2:
+    console.log('num is 2');
+    break;
+  case 4:
+    console.log('num is 4');
+    break;
+  default:
+    console.log('rest...');
+    break;
+}
+
+// for 
+const ulEl = document.querySelector('ul')
+for (let i = 0; i < 3; i+=1) {
+  const li = document.createElement('li');
+  li.textContent = `list-${i + 1}`;
+  ulEl.appendChild(li);
+}
