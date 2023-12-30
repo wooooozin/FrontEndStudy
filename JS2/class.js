@@ -84,5 +84,34 @@ const timer = {
 
 timer.timeout(); // llloppy
 
+class HelpButton {
+  constructor(name, action, pageUrl) {
+      this.name = name;
+      this.action = action;
+      this.pageUrl = pageUrl;
+  }
 
+  click() {
+      console.log(`버튼 '${this.name}'가 클릭되었습니다.`);
+      this.action();
+  }
 
+  navigate() {
+      console.log(`페이지 '${this.pageUrl}'로 이동합니다.`);
+  }
+}
+function showHelp() {
+  console.log("도움말을 표시합니다.");
+}
+const helpButton = new HelpButton("도움말", showHelp, "https://example.com/help");
+const pTag = document.createElement('p');
+document.body.appendChild(pTag);
+
+const button = document.createElement('button');
+button.textContent = helpButton.name;
+button.addEventListener('click', () => {
+    helpButton.click();
+    helpButton.navigate();
+});
+
+pTag.appendChild(button);
