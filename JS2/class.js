@@ -115,3 +115,18 @@ button.addEventListener('click', () => {
 });
 
 pTag.appendChild(button);
+
+// ES6 Classes
+
+const loopy4 = {
+  name: 'Loopy',
+  noraml() {
+    console.log(this.name)
+  },
+  arrow: () => {
+    console.log(this.name)
+  }
+}
+
+loopy4.noraml();
+loopy4.arrow();
