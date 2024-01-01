@@ -36,3 +36,4 @@ const email = '    loopy@gmail.com';
 console.log(email.match(/.+(?=@)/)[0].trim())
 console.log(email);
 console.log(email.trim());
+
