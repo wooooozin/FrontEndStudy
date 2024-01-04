@@ -109,17 +109,27 @@
   </div>
 </body>
 <script>
-const allchkBtn = document.querySelector('#allchk');
-const mainChk1 = document.querySelector('#mainchk01');
-const mainChk2 = document.querySelector('#mainchk02');
-const allCheckboxes = document.querySelectorAll('.checkboxs .checkbox input[type="checkbox"]');
-const nextBtn = document.querySelector('.next-button');
-const acco1 = document.querySelector('.chk-import1');
-const acco2 = document.querySelector('.chk-import2');
-const mainSubChk1 = document.querySelectorAll('.chk-import1 .checkboxs.-sub .checkbox input[type="checkbox"]');
-const mainSubChk2 = document.querySelectorAll('.chk-import2 .checkboxs.-sub .checkbox input[type="checkbox"]');
+const allchkBtn = document.querySelector('#allchk'); // 전체동의 checkbox 
+const mainChk1 = document.querySelector('#mainchk01'); // 필수동의 checkbox 
+const mainChk2 = document.querySelector('#mainchk02'); // 선택동의 checkbox
 
+const nextBtn = document.querySelector('.next-button'); // 다음 버튼
+const acco1 = document.querySelector('.chk-import1'); // 필수동의 하위 영역 
+const acco2 = document.querySelector('.chk-import2'); // 선택동의 하위 영역 
+
+const mainSubChk1 = document.querySelectorAll('.chk-import1 .checkboxs.-sub .checkbox input[type="checkbox"]'); // 필수동의 하위 5개 check
+const mainSubChk2 = document.querySelectorAll('.chk-import2 .checkboxs.-sub .checkbox input[type="checkbox"]'); // 선택동의 하위 3개 check
+const allCheckboxes = document.querySelectorAll('.checkboxs .checkbox input[type="checkbox"]'); // 필수동의 내부 5개 + 선택동의 내부 3개 checkbox 배열
+// allCheckboxes 보다는 innerCheckboxes 등 이름이 맞을거같음 -> 하단 변수들을 배열로 합친 [...mainSumChk1, ...mainSubChk2] 로 해줘도됨
+
+// 버튼 동작 가능한지 여부 확인용 이벤트 리스너
+nextBtn.addEventListener('click', () => {
+  alert("hello");
+});
+
+// 'change'는 상태가 변경되는 것을 감지하는 이벤트 
 allchkBtn.addEventListener('change', allChkStatus);
+
 mainChk1.addEventListener('change', () => {
   mainChkStatus(mainChk1, mainSubChk1);
   setAccoStatus();
@@ -151,11 +161,11 @@ function updateAllChkStatus() {
 
 function updateNextButtonStatus() {
   if (allchkBtn.checked) {
-    nextBtn.disAbled = false;
+    nextBtn.disabled = false;
     nextBtn.classList.remove('-disabled')
     nextBtn.classList.add('-on');
   } else {
-    nextBtn.disAbled = true;
+    nextBtn.disabled = true;
     nextBtn.classList.remove('-on');
     nextBtn.classList.add('-disabled');
   }
