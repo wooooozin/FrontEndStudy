@@ -16,11 +16,192 @@
 <!-- <script src="./lodash.js"></script> -->
 <!-- <script src="./json.js"></script> -->
 <!-- <script src="./storage.js"></script> -->
-<script src="./api.js"></script>
+<!-- <script defer src="./api.js"></script> -->
+<style>
+  html,body {margin:0;padding:0;box-sizing:border-box;}
+  .agree-area {border:1px solid red;}
+  .agree-area .acco {background:#fafafa;}
+  .agree-area .acco .panel {display:none;}
+  .agree-area .acco.-active .panel {display:block;}
+  .agree-area .acco .title {padding:10px;font-size:16px;font-weight:bold;box-sizing:border-box;border:1px solid #000;}
+  .agree-area .acco .panel {padding:10px;box-sizing:border-box;}
+  .agree-area .acco .panel .checkbox {padding:5px;}
+  .agree-area .acco + .acco {margin-top:20px;}
+  .fixed-button {padding:10px;background:#eee;text-align:center;font-size:14px;font-weight:bold;}
+  .fixed-button .next-button {width:200px;padding:10px;background:#ddd;color:#000;}
+  .fixed-button .next-button.-disabled {background:#fafafa;color:#ccc;}
+  .fixed-button .next-button.-on {padding:10px;background:#000;color:#fff;}
+</style>
 
 </head>
 <body>
-  <h1></h1>
-  <img src="" alt="" width="200">
+  <h1>aa</h1>
+  <div class="content">
+    <div class="agree-area">
+      <div class="allchk-button">
+        <button type="button">
+          <input type="checkbox" id="allchk" />
+            <label for="allchk">전체동의</label>
+        </button>
+      </div>
+      <div class="agree-acco">
+        <div class="acco chk-import chk-import1 -active">
+          <div class="title">
+            <div class="checkbox">
+              <input type="checkbox" id="mainchk01" />
+              <label for="mainchk01">필수동의</label>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="checkboxs -sub">
+              <div class="checkbox">
+                <input type="checkbox" id="chksub01" />
+                <label for="chksub01">필수동의 약관1</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="chksub02" />
+                <label for="chksub02">필수동의 약관2</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="chksub03" />
+                <label for="chksub03">필수동의 약관3</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="chksub04" />
+                <label for="chksub04">필수동의 약관4</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="chksub05" />
+                <label for="chksub05">필수동의 약관5</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acco chk-import chk-import2 -active">
+          <div class="title">
+            <div class="checkbox">
+              <input type="checkbox" id="mainchk02" />
+              <label for="mainchk02">선택동의</label>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="checkboxs -sub">
+              <div class="checkbox">
+                <input type="checkbox" id="bchksub01" />
+                <label for="bchksub01">선택동의 약관1</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="bchksub02" />
+                <label for="bchksub02">선택동의 약관2</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="bchksub03" />
+                <label for="bchksub03">선택동의 약관3</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fixed-button">
+        <button type="button" class="next-button -disabled" disabled>다음</button>
+      </div>
+    </div>
+  </div>
 </body>
+<script>
+const allchkBtn = document.querySelector('#allchk');
+const mainChk1 = document.querySelector('#mainchk01');
+const mainChk2 = document.querySelector('#mainchk02');
+const allCheckboxes = document.querySelectorAll('.checkboxs .checkbox input[type="checkbox"]');
+const nextBtn = document.querySelector('.next-button');
+const acco1 = document.querySelector('.chk-import1');
+const acco2 = document.querySelector('.chk-import2');
+const mainSubChk1 = document.querySelectorAll('.chk-import1 .checkboxs.-sub .checkbox input[type="checkbox"]');
+const mainSubChk2 = document.querySelectorAll('.chk-import2 .checkboxs.-sub .checkbox input[type="checkbox"]');
+
+allchkBtn.addEventListener('change', allChkStatus);
+mainChk1.addEventListener('change', () => {
+  mainChkStatus(mainChk1, mainSubChk1);
+  setAccoStatus();
+});
+mainChk2.addEventListener('change', () => {
+  mainChkStatus(mainChk2, mainSubChk2);
+  setAccoStatus();
+});
+mainSubChk1.forEach(checkbox => checkbox. addEventListener('change', checkSubChk1Status));
+mainSubChk2.forEach(checkbox => checkbox.addEventListener('change', checkSubChk2Status));
+
+function allChkStatus(event) {
+  [mainChk1, mainChk2, ...mainSubChk1, ...mainSubChk2].forEach(checkbox => checkbox.checked = event.target.checked);
+  setAccoStatus()
+  updateNextButtonStatus()
+}
+
+
+function mainChkStatus(mainChk, subChks) {
+  subChks.forEach(checkbox => checkbox.checked = mainChk.checked);
+  updateAllChkStatus();
+}
+
+function updateAllChkStatus() {
+  const isAllChecked = mainChk1.checked && mainChk2.checked;
+  allchkBtn.checked = isAllChecked;
+  updateNextButtonStatus()
+}
+
+function updateNextButtonStatus() {
+  if (allchkBtn.checked) {
+    nextBtn.disAbled = false;
+    nextBtn.classList.remove('-disabled')
+    nextBtn.classList.add('-on');
+  } else {
+    nextBtn.disAbled = true;
+    nextBtn.classList.remove('-on');
+    nextBtn.classList.add('-disabled');
+  }
+}
+
+function checkSubChk1Status() {
+  let isAllChecked = true;
+  for (let checkbox of mainSubChk1) {
+    if (!checkbox.checked) {
+      isAllChecked = false;
+      break;
+    }
+  }
+  mainChk1.checked = isAllChecked;
+  allchkBtn.checked = isAllChecked && mainChk1.checked && mainChk2.checked;
+  setAccoStatus()
+  updateNextButtonStatus();
+}
+
+function checkSubChk2Status() {
+  let isAllChecked = true;
+  for (let checkbox of mainSubChk2) {
+    if (!checkbox.checked) {
+      isAllChecked = false;
+      break;
+    }
+  }
+  mainChk2.checked = isAllChecked;
+  allchkBtn.checked = isAllChecked && mainChk2.checked && mainChk1.checked;
+  setAccoStatus()
+  updateNextButtonStatus();
+}
+
+function setAccoStatus() {
+  // mainChk1과 mainChk2의 상태에 따라 acco1과 acco2의 클래스를 조절
+  if (mainChk1.checked) {
+    acco1.classList.remove('-active');
+  } else {
+    acco1.classList.add('-active');
+  }
+
+  if (mainChk2.checked) {
+    acco2.classList.remove('-active');
+  } else {
+    acco2.classList.add('-active');
+  }
+}
+</script>
 </html>
