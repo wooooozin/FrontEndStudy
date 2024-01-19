@@ -18,3 +18,21 @@ https://regexr.com/
   /표현/옵션
   /[a-z]/gi
   ```
+
+## 예제 문자
+```js
+const str = `
+010-1234-1234
+theest@gmail.com
+http://www.examp.com?apikey=1234&s=frozen
+The quick brown jumps over the lazy dog
+abbcccddd
+`
+```
+
+## 메서드
+메서드 | 문법 | 설명
+--|--|--
+test | `정규식.test(문자열)` | 일치여부(Boolean) 반환
+match | `문자열.match(정규식)` | 일치하는 문자의 배열 반환
+replace | `문자열.replace(정규식, 대체문자)` | 일치하는 문자를 대체
