@@ -47,3 +47,15 @@ console.log(
 console.log(
   str.match(/dog|fox/g)
 )
+
+console.log(
+  str.match(/http?/g)
+)
+
+console.log(
+  str.match(/d{2}/g)
+)
+
+console.log(
+  str.match(/\b\w{2,3}\b/g)
+)
