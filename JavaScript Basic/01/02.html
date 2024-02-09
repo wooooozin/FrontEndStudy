@@ -9,12 +9,18 @@
 <body>
   <div class="alert-box" id="box"> 
     알람팝업 
-    <button onclick="document.getElementById('box').style.display = 'none'">닫기</button>
+    <button onclick=hideAlert()>닫기</button>
   </div>
-  <button onclick="document.getElementById('box').style.display = 'block'">보여주세요</button>
+  <button onclick=showAlert()>보여주세요</button>
 
   <script>
+    function showAlert() {
+      document.getElementById('box').style.display = 'block';
+    }
 
+    function hideAlert() {
+      document.getElementById('box').style.display = 'none';
+    }
   </script>
   
 </body>
