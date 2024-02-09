@@ -9,9 +9,10 @@
 <body>
   <div class="alert-box" id="box"> 
     알람팝업 
-    <button onclick=hideAlert()>닫기</button>
+    <p id="num"></p>
+    <button onclick="changeStatusAlert('none')">닫기</button>
   </div>
-  <button onclick=showAlert()>보여주세요</button>
+  <button onclick="changeStatusAlert('block')">보여주세요</button>
 
   <script>
     function showAlert() {
@@ -21,6 +22,18 @@
     function hideAlert() {
       document.getElementById('box').style.display = 'none';
     }
+
+    function changeStatusAlert(status) {
+      document.getElementById('box').style.display = status;
+    }
+    
+    function addTwoNum(a, b) {
+      return a + b;
+    }
+
+    document.getElementById('num').innerHTML = addTwoNum(10, 20);
+
+
   </script>
   
 </body>
