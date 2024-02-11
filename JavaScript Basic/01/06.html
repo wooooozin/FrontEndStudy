@@ -16,7 +16,7 @@
       }
     </style>
 </head>
-<body>
+<body class="body-bg">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
       <span class="navbar-brand">Navbar</span>
@@ -32,6 +32,11 @@
 
     document.querySelector('.badge').addEventListener('click', function() {
       document.querySelector('.badge').textContent = clicked ? 'Light' : 'dark';
+      if (clicked) {
+        document.querySelector('.body-bg').classList.add('dark');
+      } else {
+        document.querySelector('.body-bg').classList.remove('dark');
+      }
       clicked = !clicked;
     });
   </script>
