@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>태조 이성계가 태어난 년도는?</p>
+  <input type="text" id="answer" />
+  <button id="send-answer">제출</button>
+
+  <script>
+    let age = 20;
+    const city = 'seoul';
+
+    var name = 'park';
+    var id = 0;
+
+    function show() {
+      var name = 'kim';
+      var id = 1;
+      console.log(name);
+    }
+
+    show();
+    console.log(id);
+
+    function caculrateResult() {
+      var input = 60000;
+      var rate = 0;
+      var year = 2;
+      if (input <= 0) {
+        return;
+      }
+
+      if (input > 0 && input < 50000) {
+        rate = 0.15;
+      } else {
+        rate = 0.2; 
+      }
+
+      for (let cnt = 0; cnt < year; cnt++) {
+        input = input + (input * rate);
+        console.log((cnt+1), input);
+      }
+      console.log(input);
+    }
+    caculrateResult();
+
+    function refillCoffe() {
+      let first = 360; // 240, 160
+      let sum = first; // 360, +240 = 600, +160 = 760
+
+      for (let i = 0; i < 2; i++) {
+        var refill = first * (2 / 3);
+        sum = sum + refill;
+        first = refill;
+      }
+      console.log(sum);
+
+    }
+    refillCoffe();
+
+    let count = 0;
+
+    document.querySelector('#send-answer').addEventListener('click', function() {
+      const answer = '1335';
+      let inputText = document.querySelector('#answer').value;
+      console.log(inputText);
+      if (answer === inputText) {
+        alert('성공');
+      } else {
+        count++;
+        alert('틀림');
+        if (count === 3) {
+          alert('멍청이');
+        }
+      }
+    });
+    
+  </script>
+</body>
+</html>
