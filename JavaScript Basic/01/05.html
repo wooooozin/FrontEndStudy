@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="text" id="num" placeholder="숫자를 입력하세요" />
+    <button type="button" onclick="checkMultipleThree()">체크</button>
+  </div>
+
+  <div>
+    <input type="text" id="subjectA" placeholder="과목점수를 입력하세요" />
+    <input type="text" id="subjectB" placeholder="과목점수를 입력하세요" />
+    <button type="button" id="checkPassBtn">체크</button>
+  </div>
+
+  <script>
+
+
+    function checkMultipleThree() {
+    let num = document.querySelector('#num').value;
+    let ends = num.slice(-1);
+    // if (num % 3 === 0 && num % 9 === 0) {
+    //   alert('3의 배수이자 9의 배수 박수 두번')
+    // } else if (num % 3 === 0) {
+    //     alert('3의 배수 박수');
+    // } else {
+    //   alert('통과');
+    // }
+
+    if (ends === '3' || ends === '6' || ends === '9') {
+      console.log('박수');
+    } 
+      console.log('pass');
+    
+    console.log(ends);
+  }
+
+  document.querySelector('#checkPassBtn').addEventListener('click', function() {
+    let subA = parseInt(document.querySelector('#subjectA').value);
+    let subB = parseInt(document.querySelector('#subjectB').value);
+    let sum = subA + subB;
+
+    // if (!subA || !subB) {
+    //   alert('모두 입력하셈')
+    //   return;
+    // }
+
+    if (isNaN(subA) || isNaN(subB)) {
+      alert('숫자만 입력해주세요')
+      return;
+    } else if (!(subA > 0 && subA <= 100) ||
+    !(subB> 0 && subB <= 100) ){
+      alert('1-100까지만 입력하셈');
+      return;
+    }
+
+    if (subA < 40 || subB < 40) {
+      alert('불합격');
+    } else if (sum < 120) {
+      alert('불합격');
+    } else {
+      alert('합격');
+    }
+    
+  });
+
+
+  </script>
+</body>
+</html>
