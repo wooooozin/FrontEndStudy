@@ -6,6 +6,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <style>
     .navbar {
+      top: 0;
+      height: 56px;
       position: fixed;
       width: 100%;
       z-index: 5;
@@ -13,6 +15,24 @@
     .navbar-brand {
       font-size: 30px;
     }
+    .progress-container {
+    position: fixed;
+    top: 57px;
+    width: 100%;
+    background-color: #eee;
+    padding: 3px;
+    border-radius: 5px;
+  }
+  
+  .progress-bar {
+    height: 20px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    width: 0%; /* Initial width */
+    border-radius: 3px;
+  }
   </style>
   <title>Document</title>
 </head>
@@ -25,8 +45,11 @@
       </button>
     </div>
   </nav>
-    <div style="height: 200px;">
 
+    <div style="height: 200px;">
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar">0%</div>
     </div>
     <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll;">
     정기회의 회기는 100일을, 임시회의 회기는 30일을 초과할 수 없다. 국채를 모집하거나 예산외에 국가의 부담이 될 계약을 체결하려 할 때에는 정부는 미리 국회의 의결을 얻어야 한다.
@@ -41,6 +64,16 @@
       } else {
         document.querySelector('.navbar-brand').style.fontSize = '30px';
       }
+
+      let amount = document.querySelector('html').scrollTop;
+      let scrollHeight = document.querySelector('html').scrollHeight;
+      let height = document.querySelector('html').clientHeight;
+      console.log(amount, scrollHeight, height);
+      let progressRate = ((amount / (scrollHeight - height)).toFixed(2)) * 100;
+      
+      document.querySelector('#progressBar').style.width = progressRate + '%';
+      document.querySelector('#progressBar').textContent = progressRate + '%';
+
     });
 
     document.querySelector('.lorem').addEventListener('scroll', function() {
