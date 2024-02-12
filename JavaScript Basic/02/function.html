@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    function caculateMS(min, sec) {
+      return (min * 60 * 1000) + (sec * 1000);
+    }
+
+    console.log(caculateMS(1, 30));
+    console.log(caculateMS(2, 10));
+
+    
+
+    function discount(price, isFirst) {
+      let discount = price - (price * 0.10);
+
+      if (isFirst) {
+        return discount - 1.5;
+      }
+      return discount;
+    }
+
+    console.log(discount(70, false));
+    console.log(discount(10, true));
+
+  </script>
+</body>
+</html>
