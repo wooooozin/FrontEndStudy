@@ -48,7 +48,8 @@
   
     <div class="container mt-3">
       <div class="card p-3">
-        상품명 / 가격
+        <span class="car-title">상품명</span>
+        <span class="car-price">가격</span>
       </div>
     </div>
   
@@ -86,12 +87,14 @@
     // object
     let car2 = {
       name: 'sonata',
-      price: 10000,
+      price: [10000, 3000, 4000],
       color: 'white'
     };   
 
-    const card = document.querySelector('.card');
-    card.textContent = `${car2.name} / ${car2.price}  ㅌㅌㅌㅌ`;
+    const carTitle = document.querySelector('.car-title');
+    carTitle.textContent = car2.name;
+    const carPrice = document.querySelector('.car-price');
+    carPrice.textContent = car2.price.join('-');
 
   </script>
 </body>
