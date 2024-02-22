@@ -1,18 +1,27 @@
 let tabButtons = document.querySelectorAll('.tab-button');
 let tabContents = document.querySelectorAll('.tab-content');
 
-for (let i = 0; i < tabButtons.length; i++) {
-  tabButtons[i].addEventListener('click', function() {
-      for (let j = 0; j < tabButtons.length; j++) {
-        tabButtons[j].classList.remove('orange');
-      }
-      tabButtons[i].classList.add('orange');
+// for (let i = 0; i < tabButtons.length; i++) {
+//   tabOpen(i);
+// }
 
-      for (let k = 0; k < tabContents.length; k++) {
-        tabContents[k].classList.remove('show');
-      }
-      tabContents[i].classList.add('show');
-  });
+document.querySelector('.list').addEventListener('click', function(e) {
+  console.log(e.target.dataset.value);
+  tabOpen(parseInt(e.target.dataset.value));
+});
+
+function tabOpen(i) {
+  tabButtons[i].addEventListener('click', function() {
+    for (let j = 0; j < tabButtons.length; j++) {
+      tabButtons[j].classList.remove('orange');
+    }
+    tabButtons[i].classList.add('orange');
+
+    for (let k = 0; k < tabContents.length; k++) {
+      tabContents[k].classList.remove('show');
+    }
+    tabContents[i].classList.add('show');
+});
 }
 
 console.log(tabButtons);
