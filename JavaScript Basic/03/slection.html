@@ -105,7 +105,12 @@
     const carPrice = document.querySelector('.car-price');
     carPrice.textContent = car2.price.join('-');
     
+
     //select
+    var pants = [28, 30, 32];
+    var caps = ['S', 'M', 'L', 'XL'];
+    var shirts = [90, 95, 100, 105];
+    
     let category = document.querySelector('.form-select.category');
 
     category.addEventListener('change', function(e) {
@@ -115,29 +120,25 @@
     function insertSizeSelect(value) {
       let size = document.querySelector('.form-select.size');
       size.innerHTML = '';
+      size.classList.remove('form-hide');
       let template = '';
 
       if (value === '모자') {
-        size.classList.remove('form-hide');
-        template = '<option>S</option>'
-        + '<option>M</option>'
-        + '<option>L</option>';
+        caps.forEach(function(el, index) {
+          template += `<option>${index}. ${el}</option>`
+        });
       }
       
       if (value === '셔츠') {
-        size.classList.remove('form-hide');
-        template = '<option>90</option>'
-        + '<option>95</option>'
-        + '<option>100</option>'
-        + '<option>105</option>';
+        shirts.forEach(function(el, index) {
+          template += `<option>${index}. ${el}</option>`
+        });
       }
-      
+                  
       if (value === '바지') { 
-        size.classList.remove('form-hide');
-        template = '<option value="28">28</option>'
-                 + '<option value="30">30</option>'
-                 + '<option value="32">32</option>'
-                 + '<option value="34">34</option>';
+        pants.forEach(function(el, index) {
+          template += `<option>${index}. ${el}</option>`
+        });
       }
 
       size.insertAdjacentHTML('beforeend', template);
