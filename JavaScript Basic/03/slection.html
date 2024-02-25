@@ -144,8 +144,16 @@
       size.insertAdjacentHTML('beforeend', template);
     }
 
-    
+    let obj = {
+      name:'kim',
+      age: 20,
+      city: 'sesoul'
+    }
 
+    for (let key in obj) {
+      console.log(key);
+      console.log(obj[key]);
+    }
   </script>
 
 </body>
