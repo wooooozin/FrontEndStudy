@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var names = ['흥민', '영희', '철수', '재석'];
+
+    function findName(name) {
+      names.forEach(function(el) {
+        if (el === name) {
+          alert('있어요');
+          return;
+        }
+      });
+      alert('없어요');
+    }
+
+    function findName1(name) {
+      for (let i = 0; i < names.length; i++) {
+        if (names[i] === name) {
+          alert('있어요')
+          return;
+        }
+      }
+      alert('없어요');
+    }
+
+
+
+    // let find = prompt();
+    // findName('철수')
+    // findName1(find);
+
+    // for (let i = 3; i <= 9; i+=3) {
+    //   for (let k = 1; k <= 9; k++) {
+    //     console.log(i * k);
+    //   }
+    //   console.log(i + '단 끝');
+    // }
+
+    let scores = [];
+    for (let i = 0; i < 4; i++) {
+      let score = prompt(i + ' 번째 점수를 입력하세요');
+      scores.push(parseInt(score));
+    }
+    console.log(scores);
+
+    let average = prompt('반 평균을 입력하세요.');
+    let sum = 0;
+
+    for (let i = 0; i < scores.length; i++) {
+      sum = sum + scores[i];
+    }
+    
+
+    if (average < (sum / scores.length)) {
+      let result = (sum / scores.length) - average;
+      console.log(result + '점, 반 평균 보다 잘했에요')
+    } else if (average === (sum / scores.length)) {
+      console.log(result + '점, 반 평균입니다.');
+    } else {
+      let result = average - (sum / scores.length);
+      console.log(result + '점, 반 평균 보다 못함')
+    }
+
+
+  </script>
+  
+</body>
+</html>
