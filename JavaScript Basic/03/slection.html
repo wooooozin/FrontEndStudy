@@ -38,6 +38,11 @@
       display: none;
       padding: 10px;
     }
+
+    .form-hide {
+      display: none;
+    }
+
     .show {
       display: block;
     }
@@ -73,9 +78,13 @@
   
   <form class="container my-5 form-group">
     <p>상품선택</p>
-    <select class="form-select mt-2">
+    <select class="form-select category mt-2">
       <option>모자</option>
       <option>셔츠</option>
+      <option>바지</option>
+    </select>
+    <select class="form-select size form-hide mt-2">
+        <!-- 데이터 바인딩 -->
     </select>
   </form>
 
@@ -95,8 +104,48 @@
     carTitle.textContent = car2.name;
     const carPrice = document.querySelector('.car-price');
     carPrice.textContent = car2.price.join('-');
-  
+    
+    //select
+    let category = document.querySelector('.form-select.category');
+
+    category.addEventListener('change', function(e) {
+      insertSizeSelect(e.currentTarget.value);
+    })
+
+    function insertSizeSelect(value) {
+      let size = document.querySelector('.form-select.size');
+      size.innerHTML = '';
+      let template = '';
+
+      if (value === '모자') {
+        size.classList.remove('form-hide');
+        template = '<option>S</option>'
+        + '<option>M</option>'
+        + '<option>L</option>';
+      }
+      
+      if (value === '셔츠') {
+        size.classList.remove('form-hide');
+        template = '<option>90</option>'
+        + '<option>95</option>'
+        + '<option>100</option>'
+        + '<option>105</option>';
+      }
+      
+      if (value === '바지') { 
+        size.classList.remove('form-hide');
+        template = '<option value="28">28</option>'
+                 + '<option value="30">30</option>'
+                 + '<option value="32">32</option>'
+                 + '<option value="34">34</option>';
+      }
+
+      size.insertAdjacentHTML('beforeend', template);
+    }
+
+    
+
   </script>
-  
+
 </body>
 </html>
