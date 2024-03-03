@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+  
+    </div>
+  </div>
+
+  <script>
+    let storage = localStorage.getItem('cart');
+    let datas = JSON.parse(storage);
+    let rows = document.querySelector('.row');
+    console.log(datas);
+
+    // 각 아이템의 중복 개수를 계산
+    let itemCounts = {};
+    datas.forEach(data => {
+      if (itemCounts[data]) {
+        itemCounts[data]++;
+      } else {
+        itemCounts[data] = 1;
+      }
+    });
+
+    function innerRow(response) {
+      for (let i = 0; i < response.length; i++) {
+      let template = 
+      `
+        <div class="col-sm-4" data-id=${response[i].id}>
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>${response[i]}</h5>
+        </div>
+      `;
+      rows.insertAdjacentHTML('beforeend', template);
+      }
+    }
+
+    innerRow(datas);
+
+  </script>
+</body>
+</html>
