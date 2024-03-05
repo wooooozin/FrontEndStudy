@@ -1,4 +1,4 @@
-div {
+.profile {
   display: flex;
   justify-content: center;
 }
@@ -6,6 +6,7 @@ div {
 img {
   width: 100px;
   display: block;
+  border-radius: 10px;
 }
 
 h3 {
@@ -21,4 +22,15 @@ p {
 
 span {
   color: rebeccapurple;
+}
+
+.profile.box {
+  background-color: blue;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  padding: 10px;
+  border: 1px soldic black;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rebeccapurple;
 }
