@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div>
+
+  </div>
+
+  <button type="button" id="id">버튼</button>
+  
+  <script>
+    'use strict';
+
+    // 아무것도 없이 그냥 쓰거나 일반 함수 안에서 쓰면 { Window }
+    console.log(this); // Window
+
+    function f1() {
+      console.log(this);
+    }
+    f1(); // Window , strict Mode에선 undefined
+
+    // Object 안에 메소드 내 this는 그 함수를 가지고 있는 오브젝트를 뜻함
+    // 에로우 펑션일때는 Window 출력
+    let dog = {
+      name: 'bbobby',
+      age: 5,
+      cry() {
+        console.log('멍멍');
+        console.log(this);
+      }
+    }
+
+    dog.cry();
+
+    let cat = {
+      name: 'blue',
+      age: 2,
+      data : {
+        cry : function() {
+          console.log('먕먕');
+          console.log(this);
+        }
+      }
+    }
+
+    cat.data.cry();
+    window.console.log(cat.age);
+
+    // 생성자에서의 this -> 생성되는 인스턴스
+    function construnctor() {
+      this.name = 'kim';
+      this.age = 20;
+    }
+
+    let obj1 = new construnctor();
+    console.log(obj1.age);
+
+
+    // 이벤트 리스너에서 this -> e.currentTarget
+    document.getElementById('id').addEventListener('click', function(e) {
+      console.log(this); // e.target
+      console.log(e.currentTarget);
+    });
+
+
+    // 반복문의 this
+    let arr = [1, 2, 3];
+    arr.forEach(function(ele, idx) {
+      console.log(ele, idx);
+      console.log(this); // Windor OR undefined('use strict일 때')
+    });
+
+
+  </script>
+
+</body>
+</html>
