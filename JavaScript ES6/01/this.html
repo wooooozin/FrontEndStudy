@@ -68,14 +68,23 @@
     });
 
 
-    // 반복문의 this
+    // forEach에서 this
     let arr = [1, 2, 3];
     arr.forEach(function(ele, idx) {
       console.log(ele, idx);
       console.log(this); // Windor OR undefined('use strict일 때')
     });
 
-
+    let obj2 = {
+      names: ['kim', 'park', 'lee', 'na'],
+      printOut: function() {
+        console.log(this);
+        obj2.names.forEach(function() {
+          console.log(this);
+        });
+      }
+    }
+    obj2.printOut();
   </script>
 
 </body>
