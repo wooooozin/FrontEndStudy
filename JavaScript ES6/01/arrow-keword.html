@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div></div>
+  <button type="button" id="button1">버튼</button>
+  <script>
+
+    let func1 = (a) => {
+      console.log('hello');
+      return a + 10;
+    };
+
+    console.log(func1(10));
+
+    [1, 2, 3, 4].forEach(e => console.log(e));
+    document.getElementById('button1').addEventListener('click', (e) => {
+      console.log(this); // window
+      console.log(e.currentTarget);
+    });
+
+    let obj = {
+      cry: () => {
+        console.log(this);
+      }
+    }
+    obj.cry(); // window
+  </script>
+</body>
+</html>
