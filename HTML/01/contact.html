@@ -4,14 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  .container {
-    
-  }
+  <style>
+    .container {
+    background-color: black;
+    padding: 30px;
+    }  
+    .form-white {
+      background-color: white;
+      width: 80%;
+      max-width: 600px;
+      margin: auto;
+    }
+    input {
+      padding: 10px;
+      font-size: 20px;
+      border: 1px solid black;
+      border-radius: 5px;
+      width: 100%;
+    }
+    div, input, textarea {
+      box-sizing: border-box;
+    }
+  </style>
+ 
 </head>
 <body>
   
   <div class="container">
-
+    <div class="form-white">
+      <from>
+        <div>
+          <h3>Contact Us</h3>
+        </div>
+        <div>
+          <p>Email</p>
+          <input type="email" placeholder="exam@exam.com"/>
+        </div>
+        <div style="width: 50%; float: left; padding: 10px;">
+          <p>First Name</p>
+          <input type="text"/>
+        </div>
+        <div style="width: 50%; float: left; padding: 10px;">
+          <p>Last Name</p>
+          <input type="text"/>
+        </div>
+        <div style="clear: both;"></div>
+        <div style="width: 100%; padding: 10px;">
+          <p>Message</p>
+          <textarea></textarea>
+        </div>
+        <div>
+          <input id="sub" type="checkbox" />
+          <label for="sub">Sub</label>
+          <button type="button">dd</button>
+        </div>
+      </from>
+    </div>
   </div>
 
 </body>
