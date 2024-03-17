@@ -37,3 +37,35 @@ table {
 .cart-table th:nth-child(2) {
   width: 400px;
 }
+
+.btn{
+  padding: 15px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: coral;
+  color: white;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: chocolate;
+}
+.btn:focus {
+  background-color: black;
+}
+.btn:active {
+  background-color: brown; 
+}
+.input-test:focus {
+  border-bottom: 2px solid rebeccapurple;
+}
+.c-link {
+  text-decoration: none;
+
+}
+.c-link:link {
+  color: red;
+}
+.c-link:visited {
+  color: black;
+}
