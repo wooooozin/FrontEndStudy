@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .flex-item {
+      width: 100px;
+      height: 100px;
+      margin: 5px;
+      font-size: 50px;
+      text-align: center;
+      
+    }
+    .flex-container {
+      display: flex;
+      background: coral;
+      flex-direction: row;
+      /* justify-content: center; */
+      /* flex-wrap: wrap; */
+      /* align-items: center; */
+    }
+    .nav-container {
+      display: flex;
+      height: 50px;
+      align-items: center;
+      padding: 5px;
+      background-color: coral;
+      color: white;
+    }
+    .nav-item {
+      margin: 10px;
+    }
+    .fsize-large {
+      font-size: 40px;
+    }
+    .fsize-small {
+      font-size: 20px;
+    }
+    .item-btn {
+      border: none;
+      background: none;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    .item-btn:hover {
+      background-color: chocolate;
+    }
+  </style>
+</head>
+<body>
+<!-- 
+  <div class="flex-container">
+    <div class="flex-item">Logo</div>
+    <div class="flex-item" style="flex-grow: 2;"></div>
+    <div class="flex-item">products services</div>
+  </div> -->
+
+  <nav>
+    <div class="nav-container">
+      <div class="nav-item fsize-large">LOGO</div>
+      <div style="flex-grow: 1;"></div>
+      <div class="nav-item fsize-small">
+        <button type="button" class="item-btn">Products</button>
+      </div>
+      <div class="nav-item fsize-small">
+        <button type="button" class="item-btn">Services</button>
+      </div>
+    </div>
+  </nav>
+  
+</body>
+</html>
