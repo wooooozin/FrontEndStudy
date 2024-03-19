@@ -44,11 +44,30 @@
       color: white;
       font-size: 20px;
       text-decoration: none;
+      font-size: 2rem;
     }
     .item-btn:hover {
       background-color: chocolate;
     }
-  </style>
+    .test {
+      width: 20em;
+      height: 100px;
+      background: aqua;
+    }
+    @media screen and (max-width: 1200px) {
+      .main-title {
+        font-size: 30px;
+      }
+      .nav-item {
+        font-size: 20px;
+      }
+    }
+    @media screen and (max-width: 700px) {
+      .main-title {
+        font-size : 20px;
+      }
+    }
+    </style>
 </head>
 <body>
 <!-- 
@@ -70,6 +89,15 @@
       </div>
     </div>
   </nav>
+
+  <div class="main-title">
+    동해물과 백두산이 마르고 닳도록 하느님기 보우하사 우리나라 만세
+    무궁과 삼천지 화려강산 대한 사람 대한으로 길이 보전하세욘
+  </div>
+
+  <div class="test">
+
+  </div>
   
 </body>
 </html>
