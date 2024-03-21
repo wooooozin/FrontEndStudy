@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // var - 재선언 가능, 재할당 가능, 범위 function
+    var name = 'kim';
+    var nmae = 'park';
+    console.log(name);
+
+    // let - 재선언 불가, 재할당 가능, 범위 { }
+    let age = 10;
+
+    // const - 재선언 불가, 재할당 불가,  범위 { }
+    const city = 'seoul';
+
+    const animal = {name : 'happy'}
+    Object.freeze(animal); // 불변 객체 만들기
+
+
+    function hello() {
+      var name1 = 'kim';
+      name1 = 'park';
+    }
+
+    console.log(name1);
+  
+    if (true) {
+      let name2 = 'park';
+
+    }
+  
+  
+  </script>
+
+</body>
+</html>
