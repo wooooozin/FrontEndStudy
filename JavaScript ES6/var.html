@@ -28,14 +28,43 @@
       name1 = 'park';
     }
 
-    console.log(name1);
+    // console.log(name1);
   
     if (true) {
       let name2 = 'park';
 
     }
-  
-  
+
+    // 호이스팅
+    // 변수의 선언을 변수 범위 맨위로 끌고 오는 현상
+    // console.log(hihi);
+    console.log(hihi);
+
+    var hihi = 'hihi';
+    console.log(hihi);
+
+    // 전역변수
+    
+    function fucn1() {
+      hihi = 'hello';
+      console.log(hihi);
+      var innerVar = 'heelloooo';
+    }
+    fucn1();
+    // console.log(innerVar);
+    window.kim = 'kim';
+    console.log(kim);
+
+    if (true) {
+    let a = 1;
+    var b = 2;
+    if (true) {
+      let b = 3;
+    }
+    console.log(b);
+  }
+
+    
   </script>
 
 </body>
