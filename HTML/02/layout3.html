@@ -4,8 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .container {
+      width: 80%;
+      max-width: 1000px;
+      margin: auto;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .container div {
+      float: left;
+      width: 25%;
+    }
+
+    @media screen and (max-width: 1200px) {
+      .container {
+        max-width: 600px;
+      }
+      .container div {
+        width: 50%;
+        text-align: center;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .container div {
+        width: 100%;
+      }
+    }
+
+  </style>
 </head>
 <body>
-  
+  <div class="container">
+    <div>
+      <h4>hihi</h4>
+      <p>lorem ipsum</p>
+    </div>
+    <div>
+      <h4>hihi</h4>
+      <p>lorem ipsum</p>
+    </div>
+    <div>
+      <h4>hihi</h4>
+      <p>lorem ipsum</p>
+    </div>
+    <div>
+      <h4>hihi</h4>
+      <p>lorem ipsum</p>
+    </div>
+  </div>
+  <div style="float: none;"></div>
 </body>
 </html>
