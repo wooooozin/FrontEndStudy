@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="container">
+
+  </div>
+  
+  <script>
+
+    // let word = '손흥민';
+    // let back = `박지성 ${word} ` + word;
+    // let template = `<div>${back}</div>`;
+    // // console.log(word);
+    // // console.log(back);
+
+    // function separate(words, vars) {
+    //   console.log(words[1] + words[0]);
+    //   console.log(vars);`
+    // }
+
+    // separate`안녕하세요. ${back} 입니다.`;
+
+    let pants = 0;
+    let socks = 30;
+    let template = `바지 ${pants} 양말 ${socks}`;
+    // console.log(template);
+
+    function separate(words, vars1, vars2) {
+      if (vars1 === 0) {
+        console.log(`바지 다팔림 ${words[1]} ${vars2}`);
+        return;
+      } 
+        console.log(`${words[0]} ${vars1} ${words[1]} ${vars2}`);
+      
+    }
+
+    separate`바지 ${pants} 양말 ${socks}`;
+
+
+
+  </script>
+
+</body>
+</html>
