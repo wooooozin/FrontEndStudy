@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    function multiple(a) {
+      return a * 10;
+    }
+
+    function addNums(a, b = multiple(a)) {
+      console.log(a + b);
+    }
+    
+    addNums(4, 5); // 9
+    addNums(4) // 44
+
+    // arguement
+    function callArgu(a, b, c) {
+      console.log(a, b, c);
+      console.log(arguments[2]);
+
+      for (let i = 0; i < arguments.length; i++) {
+        console.log(arguments[i]);
+      }
+
+    }
+
+    callArgu(1, 2, 3);
+
+
+  </script>
+
+</body>
+</html>
